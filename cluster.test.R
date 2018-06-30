@@ -93,16 +93,9 @@ cor.test(eye.final$Z.Contact...pi.,eye.final$K.)
 plot(eye.final$Z.Contact...pi.,eye.final$K.)
 plot(eye.final$O.Contact...pi.,eye.final$K.)
 
-# Histogram
+# Histogram of groups in data
 
 eye.final %>% 
   ggplot(aes(x=eye.fit.cluster)) + geom_histogram(bins = 5)
 
 
-fit <- kmeans(data[,-c(1,2)], 5) # 5 cluster solution
-
-# get cluster means 
-aggregate(data,by=list(fit$cluster),FUN=mean)
-
-# append cluster assignment
-yaa <- data.frame(data, fit$cluster)
